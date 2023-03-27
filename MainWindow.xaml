@@ -5,8 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeachersMate"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="457" Width="800">
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Background" Value="FloralWhite"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+
+        </Style>
+    </Window.Resources>
+
+    <Border Grid.Row="1" Grid.Column="0" Background="Bisque">        
+        <StackPanel Width ="60" HorizontalAlignment="Left" Name="StackPanelBar" Opacity="0.7" >
+            
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="StackPanelBar" Storyboard.TargetProperty="(Button.Width)" To="170" Duration="0:0:.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="StackPanelBar" Storyboard.TargetProperty="(Button.Width)" To="60" Duration="0:0:.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+
+
+
+            <Button Name="btn_Schedule" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="schedule.png"/>
+                    <Label Content="Schedule" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_Charts" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="charts .png"/>
+                    <Label Content="Charts" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_Tests" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="tests.png"/>
+                    <Label Content="Tests" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_Notes" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="notes.png"/>
+                    <Label Content="Notes" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_InteractiveBoard" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="interactiveBoard.png"/>
+                    <Label Content="Interactive board" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_Books" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="books.png"/>
+                    <Label Content="Books" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+            <Button Name="btn_StudentJournal" VerticalAlignment="Center">
+                <DockPanel Width="180" Margin="7,0,0,0">
+                    <Image Source="studentJournal.png"/>
+                    <Label Content="Student journal" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                </DockPanel>
+            </Button>
+
+        </StackPanel>
+    </Border>
 </Window>

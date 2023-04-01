@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace TeachersMate
 {
@@ -25,8 +26,7 @@ namespace TeachersMate
 
         public LoginWindow()
         {
-            InitializeComponent();
-            connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
+            InitializeComponent();              
         }
 
         private void OnCLickLink(object sender, RoutedEventArgs e)
@@ -41,17 +41,18 @@ namespace TeachersMate
             string login = Login_txtBox.Text;
             string password = Password_txtBox.Password;
             string position = cb_Position.Text;
+            string name = Login_txtBox.Text;
 
             if (Password_txtBox.Password.Length >= 6)
             {
                 using (connection)
                 {
+                    connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
                     connection.Open();
                     string query = "SELECT * FROM RegisteredUsersTable WHERE Login = @login AND Password = @password AND Position = @position";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-
                         command.Parameters.AddWithValue("@login", login);
                         command.Parameters.AddWithValue("@password", password);
                         command.Parameters.AddWithValue("@position", position);
@@ -59,13 +60,15 @@ namespace TeachersMate
                         object obj = command.ExecuteScalar();
                         if (obj == null)
                         {
+                            connection.Close();
                             MessageBox.Show("Wrong data!");
                             Login_txtBox.Clear();
                             Password_txtBox.Clear();
                         }
                         else
                         {
-                            MainWindow mainWindow = new MainWindow();
+                            connection.Close();
+                            MainWindow mainWindow = new MainWindow(name);
                             Close();
                             mainWindow.Show();
                         }

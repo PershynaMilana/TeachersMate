@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeachersMate"
         mc:Ignorable="d"
-        Title="Login" Height="550" Width="500">
+        Title="Login" Height="550" Width="500" WindowStartupLocation="CenterScreen">
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500">
 
         <Label Margin="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="30" Content="Log in"/>

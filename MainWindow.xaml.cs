@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
+using TeachersMate.Pages;
 
 namespace TeachersMate
 {
@@ -20,9 +22,19 @@ namespace TeachersMate
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        string name = "";
+
+        public MainWindow(string name)
         {
             InitializeComponent();
+            txtbx_greeting.Text = name;
+        }      
+
+        private void Click_BtnSchedule(object sender, RoutedEventArgs e)
+        {
+            name = txtbx_greeting.Text;
+            SchedulePage newPage = new SchedulePage(name);
+            MainFrame.Navigate(new SchedulePage(name));
         }
     }
 }

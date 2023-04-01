@@ -18,3 +18,5 @@ C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.csproj.GenerateR
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.csproj.CoreCompileInputs.cache
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.exe
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.pdb
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\SchedulePage.g.cs
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\SchedulePage.baml

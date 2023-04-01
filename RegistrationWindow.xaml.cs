@@ -25,8 +25,7 @@ namespace TeachersMate
 
         public RegistrationWindow()
         {
-            InitializeComponent();
-            connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
+            InitializeComponent();            
         }
 
         private void Registration_Btn_Click(object sender, RoutedEventArgs e)
@@ -39,6 +38,7 @@ namespace TeachersMate
             {
                 using (connection)
                 {
+                    connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
                     connection.Open();
                     string query = "SELECT * FROM RegisteredUsersTable WHERE Login = @login";
                     using (SqlCommand command = new SqlCommand(query, connection))
@@ -56,6 +56,7 @@ namespace TeachersMate
                                 command2.Parameters.AddWithValue("@position", position);
                                 command2.ExecuteNonQuery();
                             }
+                            connection.Close();
                             MessageBox.Show("Successful registration!");
                             LoginWindow loginWindow = new LoginWindow();
                             loginWindow.Show();
@@ -63,6 +64,7 @@ namespace TeachersMate
                         }
                         else
                         {
+                            connection.Close();
                             MessageBox.Show("This login already exists!");
                             Login_txtBox.Clear();
                             Password_txtBox.Clear();

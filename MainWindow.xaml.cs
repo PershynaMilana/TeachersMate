@@ -36,5 +36,11 @@ namespace TeachersMate
             SchedulePage newPage = new SchedulePage(name);
             MainFrame.Navigate(new SchedulePage(name));
         }
+
+        private void Click_BtnInteractiveBoard(object sender, RoutedEventArgs e)
+        {
+            InteractiveBoardPage newPage = new InteractiveBoardPage();
+            MainFrame.Navigate(new InteractiveBoardPage());
+        }
     }
 }

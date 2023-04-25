@@ -35,7 +35,7 @@ namespace TeachersMate.Pages
         string username = "";
         public SchedulePage(string name)
         {
-            InitializeComponent();
+            InitializeComponent();            
             username = $"StudentTable{name}";
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
             using (connection)
@@ -106,6 +106,11 @@ namespace TeachersMate.Pages
             string phoneStud = txtPhone.Text;
             int dayStud = cmbDay.SelectedIndex + 1;
             int timeStud = cmbTime.SelectedIndex;
+
+            string str1 = cmbDay.SelectedItem.ToString();
+            string str2 = str1.Substring(str1.LastIndexOf(' ') + 1);
+           
+
             if (string.IsNullOrWhiteSpace(dt.Rows[timeStud][dayStud].ToString()))
             {
                 dt.Rows[timeStud][dayStud] = nameStud + "\n" + phoneStud;
@@ -114,6 +119,11 @@ namespace TeachersMate.Pages
                 using (SqlCommand command2 = new SqlCommand(query, connection))
                 {
                     command2.ExecuteNonQuery();
+                }
+                string query2 = $"INSERT INTO {username}{str2} (Name, Attendance, Grade, HomeworkGrade, Comment) SELECT Name, 0, 1, 1, 'comm' FROM {username} WHERE Day = '{str2}' AND Name NOT IN (SELECT Name FROM {username}{str2});";
+                using (SqlCommand command3 = new SqlCommand(query2, connection))
+                {
+                    command3.ExecuteNonQuery();
                 }
                 connection.Close();
             }
@@ -132,14 +142,30 @@ namespace TeachersMate.Pages
             connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
             int dayStud = cmbDay.SelectedIndex + 1;
             int timeStud = cmbTime.SelectedIndex;
+
+            string str1 = cmbDay.SelectedItem.ToString();
+            string str2 = str1.Substring(str1.LastIndexOf(' ') + 1);
+
             if (!string.IsNullOrWhiteSpace(dt.Rows[timeStud][dayStud].ToString()))
             {
                 dt.Rows[timeStud][dayStud] = DBNull.Value;
                 connection.Open();
+                string namee = "";
+                string queryy = $"SELECT Name FROM {username} WHERE Day = '{cmbDay.Text}' AND Time = '{cmbTime.Text}';";
+
+                using (SqlCommand command22 = new SqlCommand(queryy, connection))
+                {
+                    namee = (string)command22.ExecuteScalar();
+                }
                 string query = $"DELETE FROM {username} WHERE Day = '{cmbDay.Text}' AND Time = '{cmbTime.Text}';";
                 using (SqlCommand command2 = new SqlCommand(query, connection))
                 {
                     command2.ExecuteNonQuery();
+                }
+                string query2 = $"DELETE FROM {username}{str2} WHERE Name = '{namee}';";
+                using (SqlCommand command3 = new SqlCommand(query2, connection))
+                {
+                    command3.ExecuteNonQuery();
                 }
                 connection.Close();
             }

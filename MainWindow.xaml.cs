@@ -42,5 +42,12 @@ namespace TeachersMate
             InteractiveBoardPage newPage = new InteractiveBoardPage();
             MainFrame.Navigate(new InteractiveBoardPage());
         }
+
+        private void Click_StudentJournal(object sender, RoutedEventArgs e)
+        {
+            name = txtbx_greeting.Text;
+            StudentJournalPage newPage = new StudentJournalPage(name);
+            MainFrame.Navigate(new StudentJournalPage(name));
+        }
     }
 }

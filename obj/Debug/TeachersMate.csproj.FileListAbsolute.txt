@@ -25,3 +25,5 @@ C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\InteractiveBoardPage.ba
 C:\Users\Милик\Desktop\TeachersMate\bin\Debug\System.Drawing.Common.dll
 C:\Users\Милик\Desktop\TeachersMate\bin\Debug\System.Drawing.Common.xml
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.csproj.CopyComplete
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\StudentJournalPage.g.cs
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\StudentJournalPage.baml

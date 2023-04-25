@@ -1,0 +1,90 @@
+﻿<Page x:Class="TeachersMate.Pages.StudentJournalPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeachersMate.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StudentJournalPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,100,0,0" Background="Bisque">
+            <TextBlock Text="Day of the week: " VerticalAlignment="Top" Margin="15" />
+            <ComboBox VerticalAlignment="Top" Height="25" Width="100" Name="dayOfWeekComboBox" ItemsSource="{Binding DaysOfWeek}" SelectedItem="{Binding SelectedDayOfWeek}" SelectionChanged="dayOfWeekComboBox_SelectionChanged" Margin="15" />
+        </StackPanel>
+        <DataGrid Name="dgvJournal" ItemsSource="{Binding Students}" AutoGenerateColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header="Attendance">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton GroupName="{Binding Name}" Content="Present" Checked="isChekPresent"
+                                             IsChecked="{Binding IsPresent}" Margin="5,0,5,0" />
+                                <RadioButton GroupName="{Binding Name}" Content="Absent"  Checked="isChekAbsent"
+                                             IsChecked="{Binding IsAbsent}" Margin="5,0,5,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Grade">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox Name="cbGrade" SelectedIndex ="{Binding Gradee}" SelectionChanged="gradeCbBox_SelectionChanged">
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                                <ComboBoxItem>5</ComboBoxItem>
+                                <ComboBoxItem>6</ComboBoxItem>
+                                <ComboBoxItem>7</ComboBoxItem>
+                                <ComboBoxItem>8</ComboBoxItem>
+                                <ComboBoxItem>9</ComboBoxItem>
+                                <ComboBoxItem>10</ComboBoxItem>
+                                <ComboBoxItem>11</ComboBoxItem>
+                                <ComboBoxItem>12</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Homework Grade">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox SelectedIndex="{Binding HomeworkGradee}" SelectionChanged="homewrkgradeCbBox_SelectionChanged">
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem>3</ComboBoxItem>
+                                <ComboBoxItem>4</ComboBoxItem>
+                                <ComboBoxItem>5</ComboBoxItem>
+                                <ComboBoxItem>6</ComboBoxItem>
+                                <ComboBoxItem>7</ComboBoxItem>
+                                <ComboBoxItem>8</ComboBoxItem>
+                                <ComboBoxItem>9</ComboBoxItem>
+                                <ComboBoxItem>10</ComboBoxItem>
+                                <ComboBoxItem>11</ComboBoxItem>
+                                <ComboBoxItem>12</ComboBoxItem>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Comment">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Column="1" Orientation="Vertical" Height="110" VerticalAlignment="Top" Background="Bisque">
+            <Button VerticalAlignment="Top" Content="Save" Margin="30,30,30,0" Click="SaveButton_Click" />
+        </StackPanel>
+    </Grid>
+</Page>

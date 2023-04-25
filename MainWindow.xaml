@@ -56,17 +56,17 @@
                 </DockPanel>
             </Button>
 
-            <Button Name="btn_Charts" VerticalAlignment="Center">
+            <Button Name="btn_StudentJournal" VerticalAlignment="Center" Click="Click_StudentJournal">
                 <DockPanel Width="180" Margin="7,0,0,0">
-                    <Image Source="charts .png"/>
-                    <Label Content="Charts" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                    <Image Source="studentJournal.png"/>
+                    <Label Content="Student journal" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
                 </DockPanel>
-            </Button>
+            </Button>            
 
-            <Button Name="btn_Tests" VerticalAlignment="Center">
+            <Button Name="btn_Homework" VerticalAlignment="Center">
                 <DockPanel Width="180" Margin="7,0,0,0">
                     <Image Source="tests.png"/>
-                    <Label Content="Tests" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>
+                    <Label Content="Homework" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>
                 </DockPanel>
             </Button>
 
@@ -91,13 +91,13 @@
                 </DockPanel>
             </Button>
 
-            <Button Name="btn_StudentJournal" VerticalAlignment="Center">
+            <Button Name="btn_Charts" VerticalAlignment="Center">
                 <DockPanel Width="180" Margin="7,0,0,0">
-                    <Image Source="studentJournal.png"/>
-                    <Label Content="Student journal" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
+                    <Image Source="charts .png"/>
+                    <Label Content="Charts" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>
                 </DockPanel>
             </Button>
-           
+
         </StackPanel>
    
     </Grid>

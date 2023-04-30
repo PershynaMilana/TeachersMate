@@ -27,3 +27,11 @@ C:\Users\Милик\Desktop\TeachersMate\bin\Debug\System.Drawing.Common.xml
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\TeachersMate.csproj.CopyComplete
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\StudentJournalPage.g.cs
 C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\StudentJournalPage.baml
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\BooksPage.g.cs
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\Pages\BooksPage.baml
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\LevelDialog.g.cs
+C:\Users\Милик\Desktop\TeachersMate\obj\Debug\LevelDialog.baml
+C:\Users\Милик\Desktop\TeachersMate\bin\Debug\EntityFramework.dll
+C:\Users\Милик\Desktop\TeachersMate\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Милик\Desktop\TeachersMate\bin\Debug\EntityFramework.xml
+C:\Users\Милик\Desktop\TeachersMate\bin\Debug\EntityFramework.SqlServer.xml

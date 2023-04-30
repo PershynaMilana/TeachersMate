@@ -49,5 +49,12 @@ namespace TeachersMate
             StudentJournalPage newPage = new StudentJournalPage(name);
             MainFrame.Navigate(new StudentJournalPage(name));
         }
+
+        private void Click_BtnBooks(object sender, RoutedEventArgs e)
+        {
+            name = txtbx_greeting.Text;
+            BooksPage newPage = new BooksPage(name);
+            MainFrame.Navigate(new BooksPage(name));
+        }
     }
 }

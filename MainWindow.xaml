@@ -84,7 +84,7 @@
                 </DockPanel>
             </Button>
 
-            <Button Name="btn_Books" VerticalAlignment="Center">
+            <Button Name="btn_Books" VerticalAlignment="Center" Click="Click_BtnBooks">
                 <DockPanel Width="180" Margin="7,0,0,0">
                     <Image Source="books.png"/>
                     <Label Content="Books" Foreground="Black" FontWeight="SemiBold" FontSize="13" Margin="10,0,0,0"/>

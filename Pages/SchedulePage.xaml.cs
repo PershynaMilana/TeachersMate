@@ -120,7 +120,7 @@ namespace TeachersMate.Pages
                 {
                     command2.ExecuteNonQuery();
                 }
-                string query2 = $"INSERT INTO {username}{str2} (Name, Attendance, Grade, HomeworkGrade, Comment) SELECT Name, 0, 1, 1, 'comm' FROM {username} WHERE Day = '{str2}' AND Name NOT IN (SELECT Name FROM {username}{str2});";
+                string query2 = $"INSERT INTO {username}{str2} (Name, Attendance, Grade, HomeworkGrade, Comment, Payment) SELECT Name, 0, 1, 1, 'comm', 'payment' FROM {username} WHERE Day = '{str2}' AND Name NOT IN (SELECT Name FROM {username}{str2});";
                 using (SqlCommand command3 = new SqlCommand(query2, connection))
                 {
                     command3.ExecuteNonQuery();

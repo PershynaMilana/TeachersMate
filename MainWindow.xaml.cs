@@ -56,5 +56,12 @@ namespace TeachersMate
             BooksPage newPage = new BooksPage(name);
             MainFrame.Navigate(new BooksPage(name));
         }
+
+        private void Click_BtnCharts(object sender, RoutedEventArgs e)
+        {
+            name = txtbx_greeting.Text;
+            ChartsPage newPage = new ChartsPage(name);
+            MainFrame.Navigate(new ChartsPage(name));
+        }
     }
 }

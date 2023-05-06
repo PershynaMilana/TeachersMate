@@ -41,6 +41,7 @@ namespace TeachersMate.Pages
         public string HomeworkGrade { get; set; }
         public int HomeworkGradee { get; set; }
         public string Comment { get; set; }
+        public string Payment { get; set; }
 
         public Studentt() { }
 
@@ -107,7 +108,7 @@ namespace TeachersMate.Pages
                 List<Studentt> studentF = new List<Studentt>();
                 using (connection)
                 {
-                    var queryy = $"SELECT Name, Attendance, Grade, HomeworkGrade, Comment FROM {username}{selectedDayOfWeek}";
+                    var queryy = $"SELECT Name, Attendance, Grade, HomeworkGrade, Comment, Payment FROM {username}{selectedDayOfWeek};";
                     var commandd = new SqlCommand(queryy, connection);
                     using (var readerr = commandd.ExecuteReader())
                     {
@@ -118,6 +119,7 @@ namespace TeachersMate.Pages
                             int grade = readerr.GetInt32(2);
                             int homeworkGrade = readerr.GetInt32(3);
                             string comment = readerr.GetString(4);
+                            string payment = readerr.GetString(5);
                             var student = new Studentt()
                             {
                                 Name = name,
@@ -126,7 +128,8 @@ namespace TeachersMate.Pages
                                 Gradee = grade - 1,
                                 HomeworkGrade = homeworkGrade.ToString(),
                                 HomeworkGradee = homeworkGrade - 1,
-                                Comment = comment
+                                Comment = comment,
+                                Payment = payment
                             };
                             if (student.Attendance == true)
                                 student.IsPresent = true;
@@ -146,7 +149,7 @@ namespace TeachersMate.Pages
                 connection.Open();
                 using (connection)
                 {
-                    string query2 = $"IF OBJECT_ID(N'dbo.{username}{dayOfWeekComboBox.Text}', N'U') IS NULL CREATE TABLE {username}{dayOfWeekComboBox.Text} (Name NVARCHAR (50) NOT NULL, Attendance BIT, Grade INT, HomeworkGrade INT, Comment NVARCHAR (50));";
+                    string query2 = $"IF OBJECT_ID(N'dbo.{username}{dayOfWeekComboBox.Text}', N'U') IS NULL CREATE TABLE {username}{dayOfWeekComboBox.Text} (Name NVARCHAR (50) NOT NULL, Attendance BIT, Grade INT, HomeworkGrade INT, Comment NVARCHAR (50), Payment NVARCHAR (50));";
                     using (SqlCommand command2 = new SqlCommand(query2, connection))
                     {
                         command2.ExecuteNonQuery();
@@ -201,7 +204,8 @@ namespace TeachersMate.Pages
                     int hwgradee = hwgrade;
                     string comment = student.Comment;
                     string name = student.Name;
-                    var query = $"DELETE FROM {username}{dayOfWeekComboBox.Text} WHERE Name = '{name}'; INSERT INTO {username}{dayOfWeekComboBox.Text} ([Name], [Attendance], [Grade], [HomeworkGrade], [Comment]) VALUES ('{name}', '{attendence}', '{gradee}', '{hwgradee}', '{comment}');";
+                    string payment = student.Payment;
+                    var query = $"DELETE FROM {username}{dayOfWeekComboBox.Text} WHERE Name = '{name}'; INSERT INTO {username}{dayOfWeekComboBox.Text} ([Name], [Attendance], [Grade], [HomeworkGrade], [Comment], [Payment]) VALUES ('{name}', '{attendence}', '{gradee}', '{hwgradee}', '{comment}', '{payment}');";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.ExecuteNonQuery();

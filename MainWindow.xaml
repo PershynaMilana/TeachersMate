@@ -70,7 +70,7 @@
                 </DockPanel>
             </Button>
 
-            <Button Name="btn_Notes" VerticalAlignment="Center">
+            <Button Name="btn_Notes" VerticalAlignment="Center" Click="Click_BtnNotes">
                 <DockPanel Width="180" Margin="7,0,0,0">
                     <Image Source="notes.png"/>
                     <Label Content="Notes" Foreground="Black" FontWeight="DemiBold" FontSize="13" Margin="10,0,0,0"/>

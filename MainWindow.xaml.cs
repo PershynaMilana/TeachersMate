@@ -63,5 +63,11 @@ namespace TeachersMate
             ChartsPage newPage = new ChartsPage(name);
             MainFrame.Navigate(new ChartsPage(name));
         }
+
+        private void Click_BtnNotes(object sender, RoutedEventArgs e)
+        {
+            NotesPage newPage = new NotesPage();
+            MainFrame.Navigate(new NotesPage());
+        }
     }
 }

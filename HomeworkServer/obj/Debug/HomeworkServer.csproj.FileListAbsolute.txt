@@ -1,0 +1,8 @@
+C:\Users\Милик\Desktop\HomeworkServer\bin\Debug\HomeworkServer.exe.config
+C:\Users\Милик\Desktop\HomeworkServer\bin\Debug\HomeworkServer.exe
+C:\Users\Милик\Desktop\HomeworkServer\bin\Debug\HomeworkServer.pdb
+C:\Users\Милик\Desktop\HomeworkServer\obj\Debug\HomeworkServer.csproj.AssemblyReference.cache
+C:\Users\Милик\Desktop\HomeworkServer\obj\Debug\HomeworkServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Милик\Desktop\HomeworkServer\obj\Debug\HomeworkServer.csproj.CoreCompileInputs.cache
+C:\Users\Милик\Desktop\HomeworkServer\obj\Debug\HomeworkServer.exe
+C:\Users\Милик\Desktop\HomeworkServer\obj\Debug\HomeworkServer.pdb

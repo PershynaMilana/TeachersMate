@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeachersMate"
         mc:Ignorable="d"
-         Title="Replace" Height="150" Width="310">
-    <Grid>
+         Title="Replace" Height="170" Width="330">
+    <Grid Background="#F2E5E5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -16,10 +16,10 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Find:" Grid.Row="0" Grid.Column="0" Margin="5"/>
-        <TextBox x:Name="searchTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
-        <Label Content="Replace with:" Grid.Row="1" Grid.Column="0" Margin="5"/>
-        <TextBox x:Name="replaceTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <Label Foreground="#665A48" FontFamily="Roboto" FontSize="17" Content="Find:" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <TextBox Foreground="#454545" FontFamily="Roboto" FontSize="17" x:Name="searchTextBox" Grid.Row="0" Grid.Column="1" Margin="5" Height="30"/>
+        <Label Foreground="#665A48" FontFamily="Roboto" FontSize="17" Content="Replace with:" Grid.Row="1" Grid.Column="0" Margin="5" Height="30"/>
+        <TextBox Foreground="#454545" FontFamily="Roboto" FontSize="17" x:Name="replaceTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
         <Button Content="Replace" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5" Click="ReplaceButton_Click"/>
     </Grid>
 </Window>

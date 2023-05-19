@@ -6,59 +6,62 @@
       xmlns:local="clr-namespace:TeachersMate.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="556" d:DesignWidth="910"
-      Title="InteractiveBoardPage">
+  Title="InteractiveBoardPage">
+    <Grid Background="#F2E5E5" Margin="50,0,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    <Grid>
-        <Canvas Margin="10" Height="440" VerticalAlignment="Bottom" Name="canvas" Background="White"
-                MouseDown="canvas_MouseDown"
-                MouseMove="canvas_MouseMove"
-                MouseUp="canvas_MouseUp"/>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+        <Canvas Grid.Row="1" Margin="20,10,50,10" MinHeight="440" VerticalAlignment="Stretch" Name="canvas" Background="White"
+            MouseDown="canvas_MouseDown"
+            MouseMove="canvas_MouseMove"
+            MouseUp="canvas_MouseUp" />
 
-            <Grid Name="gridColr">
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top" Margin="10">
+            <Grid Name="gridColor">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
+                    <ColumnDefinition Width="25" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
-                <Rectangle Margin="2" Grid.Column="0" Grid.Row="0" Width="25" Height="25" Fill="Red" Tag="Red"  MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="1" Grid.Row="0" Width="25" Height="25" Fill="Green" Tag="Green"  MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="2" Grid.Row="0" Width="25" Height="25" Fill="Blue" Tag="Blue" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="3" Grid.Row="0" Width="25" Height="25" Fill="Yellow" Tag="Yellow" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="0" Grid.Row="1" Width="25" Height="25" Fill="CadetBlue" Tag="CadetBlue" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="1" Grid.Row="1" Width="25" Height="25" Fill="Magenta" Tag="Magenta" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="2" Grid.Row="1" Width="25" Height="25" Fill="Orange" Tag="Orange" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="3" Grid.Row="1" Width="25" Height="25" Fill="Purple" Tag="Purple" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="4" Grid.Row="0" Width="25" Height="25" Fill="Cyan" Tag="Cyan" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="5" Grid.Row="0" Width="25" Height="25" Fill="DarkBlue" Tag="DarkBlue" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="4" Grid.Row="1" Width="25" Height="25" Fill="Gray" Tag="Gray" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
-                <Rectangle Margin="2" Grid.Column="5" Grid.Row="1" Width="25" Height="25" Fill="HotPink" Tag="HotPink" MouseLeftButtonDown="Border_MouseLeftButtonDown"/>
+                <Rectangle Margin="2" Grid.Column="0" Grid.Row="0" Width="25" Height="25" Fill="Red" Tag="Red" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="1" Grid.Row="0" Width="25" Height="25" Fill="Green" Tag="Green" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="2" Grid.Row="0" Width="25" Height="25" Fill="Blue" Tag="Blue" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="3" Grid.Row="0" Width="25" Height="25" Fill="Yellow" Tag="Yellow" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="0" Grid.Row="1" Width="25" Height="25" Fill="CadetBlue" Tag="CadetBlue" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="1" Grid.Row="1" Width="25" Height="25" Fill="Magenta" Tag="Magenta" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="2" Grid.Row="1" Width="25" Height="25" Fill="Orange" Tag="Orange" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="3" Grid.Row="1" Width="25" Height="25" Fill="Purple" Tag="Purple" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="4" Grid.Row="0" Width="25" Height="25" Fill="Cyan" Tag="Cyan" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="5" Grid.Row="0" Width="25" Height="25" Fill="DarkBlue" Tag="DarkBlue" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="4" Grid.Row="1" Width="25" Height="25" Fill="Gray" Tag="Gray" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
+                <Rectangle Margin="2" Grid.Column="5" Grid.Row="1" Width="25" Height="25" Fill="HotPink" Tag="HotPink" MouseLeftButtonDown="Border_MouseLeftButtonDown" />
             </Grid>
 
-            <ComboBox Name="sizeComboBox"  Height="30" FontSize="14" Width="100" Margin="10 0 10 0"
+            <ComboBox  Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545"  Name="sizeComboBox" FontSize="14" Width="100" Margin="10 0"
                       SelectionChanged="sizeComboBox_SelectionChanged">
-                <ComboBoxItem Content="Small" Tag="5" IsSelected="True"/>
-                <ComboBoxItem Content="Medium" Tag="10"/>
-                <ComboBoxItem Content="Large" Tag="15"/>
+                <ComboBoxItem Content="Small" Tag="5" IsSelected="True" />
+                <ComboBoxItem Content="Medium" Tag="10" />
+                <ComboBoxItem Content="Large" Tag="15" />
             </ComboBox>
 
-            <ComboBox x:Name="brushComboBox"  Height="30" FontSize="14" Width="100" Margin="0 0 10 0" SelectionChanged="brushComboBox_SelectionChanged">
-                <ComboBoxItem Content="Solid" Tag="Solid" IsSelected="True"/>
-                <ComboBoxItem Content="Dashed" Tag="Dashed"/>
-                <ComboBoxItem Content="Dotted" Tag="Dotted"/>
+            <ComboBox  Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545" x:Name="brushComboBox" FontSize="14" Width="100" Margin="0 0 10 0" SelectionChanged="brushComboBox_SelectionChanged">
+                <ComboBoxItem Content="Solid" Tag="Solid" IsSelected="True" />
+                <ComboBoxItem Content="Dashed" Tag="Dashed" />
+                <ComboBoxItem Content="Dotted" Tag="Dotted" />
             </ComboBox>
-            
-            <Button x:Name="clearButton"  Height="30" FontSize="14" Content="Clear" Width="75"  Margin="0 0 10 0" Click="clearButton_Click"/>
-            <Button x:Name="saveButton"  Height="30" FontSize="14" Content="Save" Width="75"  Margin="0 0 10 0" Click="saveButton_Click"/>
-            <Button x:Name="openButton"  Height="30" FontSize="14" Content="Open" Width="75"  Margin="0 0 10 0" Click="openButton_Click"/>
-           
+
+            <Button  FontFamily="Roboto" x:Name="clearButton" FontSize="14" Content="Clear" Width="75" Margin="0 0 10 0" Click="clearButton_Click" />
+            <Button  FontFamily="Roboto" x:Name="saveButton" FontSize="14" Content="Save" Width="75" Margin="0 0 10 0" Click="saveButton_Click" />
+            <Button  FontFamily="Roboto" x:Name="openButton" FontSize="14" Content="Open" Width="75" Margin="0 0 10 0" Click="openButton_Click" />
         </StackPanel>
     </Grid>
 </Page>

@@ -5,25 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeachersMate"
         mc:Ignorable="d"
-        Title="Login" Height="550" Width="500" WindowStartupLocation="CenterScreen">
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500">
+        Title="Login" Height="560" Width="500" WindowStartupLocation="CenterScreen" Icon="/iconTeachersMate.png" >
+    <Window.Resources>
+        <Style x:Key="MaterialDesignHyperlinkStyle" TargetType="Hyperlink">
+            <Setter Property="Foreground" Value="#CE7777" />
+            <Setter Property="TextBlock.TextDecorations" Value="Underline" />
+            <Setter Property="TextBlock.FontFamily" Value="Roboto" />
+            <Setter Property="TextBlock.FontWeight" Value="Normal" />
+            <Setter Property="TextBlock.FontSize" Value="14" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="#FFCE7777" />
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
-        <Label Margin="25" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="30" Content="Log in"/>
+    </Window.Resources>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500" Background="#F2E5E5" >
+
+        <Label Margin="25,45,25,25" FontFamily="Roboto" Foreground="#665A48" FontWeight="Regular" VerticalAlignment="Center" HorizontalAlignment ="Center" FontSize="30" Content="Log in"/>
 
         <StackPanel HorizontalAlignment="Center" Width="400">
 
-            <ComboBox Name ="cb_Position" Margin="10" VerticalAlignment="Center" HorizontalAlignment ="Left" FontSize="17" Width="370" Height="25">
-                <TextBlock>Teacher</TextBlock>
-                <TextBlock>Student</TextBlock>
+            <ComboBox Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545" Name ="cb_Position" Margin="10" VerticalAlignment="Center" HorizontalAlignment ="Left" FontSize="17" Width="370" Height="35">
+                <ComboBoxItem>Teacher</ComboBoxItem>
+                <ComboBoxItem>Student</ComboBoxItem>
             </ComboBox>
 
-            <Label Margin="10" VerticalAlignment="Center" HorizontalAlignment ="Left" FontSize="17" Content="Login:"/>
-            <TextBox Name="Login_txtBox" FontSize="17" HorizontalAlignment ="Left" Margin="10" Width="370" Height="25"/>
-            <Label Margin="10" VerticalAlignment="Center" HorizontalAlignment ="Left" FontSize="17" Content="Password: (at least 6 characters)"/>
-            <PasswordBox PasswordChar="*" Name="Password_txtBox" FontSize="17" HorizontalAlignment ="Left" Margin="10" Width="370" Height="25"/>
+            <Label  FontFamily="Roboto" Foreground="#665A48" FontSize="17" Margin="10"  VerticalAlignment="Center" HorizontalAlignment ="Left" Content="Login:"/>
+            <TextBox  FontFamily="Roboto"  Foreground="#454545" Name="Login_txtBox" FontSize="17" HorizontalAlignment ="Left" Margin="10" Width="370" Height="30"/>
+            <Label  FontFamily="Roboto"  Margin="10" Foreground="#665A48" VerticalAlignment="Center" HorizontalAlignment ="Left" FontSize="17" Content="Password: (at least 6 characters)"/>
+            <PasswordBox  FontFamily="Roboto"  Foreground="#454545"  PasswordChar="*" Name="Password_txtBox" FontSize="17" HorizontalAlignment ="Left" Margin="10" Width="370" Height="30"/>
 
             <TextBlock HorizontalAlignment="Right"  Margin="25">
-                <Hyperlink Click="OnCLickLink" FontSize="17">I don't have an account yet</Hyperlink>
+                <Hyperlink Style="{StaticResource MaterialDesignHyperlinkStyle}" Click="OnCLickLink" FontSize="17">I don't have an account yet</Hyperlink>
             </TextBlock>
 
             <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right" Width="300" Height="60">

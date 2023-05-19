@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TeachersMate"
         mc:Ignorable="d"
-      Title="Select book data" SizeToContent="WidthAndHeight">
+      Title="Select book data" SizeToContent="WidthAndHeight" Background="#F2E5E5">
     <StackPanel Orientation="Vertical" Margin="10">
-        <TextBlock Text="Select Level:"/>
-        <ComboBox Name="cmbLevel" Margin="10">
+        <TextBlock Text="Select Level:" FontFamily="Roboto" Foreground="#665A48" FontSize="17"/>
+        <ComboBox Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545" FontSize="17" Height="35" Name="cmbLevel" Margin="10">
             <ComboBoxItem>A1</ComboBoxItem>
             <ComboBoxItem>A2</ComboBoxItem>
             <ComboBoxItem>B1</ComboBoxItem>
@@ -17,14 +17,14 @@
             <ComboBoxItem>C2</ComboBoxItem>
         </ComboBox>
         <StackPanel Orientation="Horizontal" Margin="10,20,0,0">
-            <TextBlock Text="Author:" Margin="0,0,10,0"/>
-            <TextBox Name="txtAuthor" Width="290" Margin="40,0,10,0"/>
+            <TextBlock FontFamily="Roboto" Foreground="#665A48" FontSize="17" Text="Author:" Margin="0,0,10,0"/>
+            <TextBox Name="txtAuthor" FontFamily="Roboto"  Foreground="#454545"  FontSize="17" Height="30" Width="290" Margin="40,0,10,0"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="10,20,0,10">
-            <TextBlock Text="New file name:" Margin="0,0,10,0"/>
-            <TextBox Name="txtFileName" Width="150" Margin="0,0,10,0"/>
-            <Button Name="btnCancel" Content="Cancel" Margin="10" Width="50" Click="btnCancel_Click"/>
-            <Button Name="btnOk" Content="Ok" Margin="10" Width="50" Click="btnOk_Click"/>
+            <TextBlock FontFamily="Roboto" Foreground="#665A48" FontSize="17" Text="New file name:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <TextBox Name="txtFileName" FontFamily="Roboto"  Foreground="#454545"  Width="150" Margin="0,0,10,0" FontSize="17" Height="30"/>
+            <Button Name="btnCancel"  FontFamily="Roboto" Content="Cancel" Margin="10" Width="80" Click="btnCancel_Click"/>
+            <Button Name="btnOk"  FontFamily="Roboto" Content="Ok" Margin="10" Width="80" Click="btnOk_Click"/>
         </StackPanel>
     </StackPanel>
 </Window>

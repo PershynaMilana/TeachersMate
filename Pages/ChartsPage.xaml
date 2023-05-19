@@ -8,14 +8,22 @@
       mc:Ignorable="d" 
       d:DesignHeight="556" d:DesignWidth="910"
       Title="ChartsPage" >
-    <Grid Background="#FF363131" Name="grid1">
-        <ComboBox Name="cbChoice" Height="25" Width="150"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" SelectionChanged="cmbChoice_SelectionChanged">
+    <Grid Background="#F2E5E5" Name="grid1" Margin="50,0,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Динамическая высота для комбобокса -->
+            <RowDefinition Height="*"/>
+            <!-- Остальное пространство занимается графиком -->
+        </Grid.RowDefinitions>
+
+        <ComboBox  Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545" Height="35" FontSize="17" Name="cbChoice" Grid.Row="0" HorizontalAlignment="Right" Width="220" VerticalAlignment="Top" Margin="10,10,50,10" SelectionChanged="cmbChoice_SelectionChanged">
             <ComboBoxItem>Attendance by day</ComboBoxItem>
             <ComboBoxItem>Payment by day</ComboBoxItem>
             <ComboBoxItem>Classwork grades statistics</ComboBoxItem>
             <ComboBoxItem>Homework grades statistics</ComboBoxItem>
         </ComboBox>
-        <lvc:CartesianChart Name="chart" Margin="10,32,20,10" Series="{Binding SeriesCollection}">
+
+        <lvc:CartesianChart Name="chart" Grid.Row="1" Margin="10,10,20,10" Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Title="Days" Margin="5" Labels="{Binding Labels}"/>
             </lvc:CartesianChart.AxisX>

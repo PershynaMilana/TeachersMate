@@ -5,23 +5,46 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeachersMate.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+       d:DesignHeight="878" d:DesignWidth="500"
       Title="StudentJournalPage">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="tableGrid" TargetType="Grid">
+            <Setter Property="Background" Value="#FFD0E6F1"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FF235759"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+        </Style>
+        <Style x:Key="CustomDataGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="#F2E5E5"/>
+            <Setter Property="BorderBrush" Value="#E8C4C4"/>
+            <Setter Property="BorderThickness" Value="1.5"/>
+            <Setter Property="RowBackground" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="fonts:/Roboto Regular#Roboto"/>
+            <Setter Property="Foreground" Value="#665A48"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
-        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,100,0,0" Background="Bisque">
-            <TextBlock Text="Day of the week: " VerticalAlignment="Top" Margin="15" />
-            <ComboBox VerticalAlignment="Top" Height="25" Width="100" Name="dayOfWeekComboBox" ItemsSource="{Binding DaysOfWeek}" SelectedItem="{Binding SelectedDayOfWeek}" SelectionChanged="dayOfWeekComboBox_SelectionChanged" Margin="15" />
-        </StackPanel>
-        <DataGrid Name="dgvJournal" ItemsSource="{Binding Students}" AutoGenerateColumns="False">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+        <StackPanel Width="Auto" MinWidth="180" Grid.Column="1" Orientation="Vertical" Margin="0,100,0,0" Background="#F2E5E5" HorizontalAlignment="Left">
+            <TextBlock Text="Day of the week: " VerticalAlignment="Top" Margin="15" />
+            <ComboBox VerticalAlignment="Top" Height="25" Name="dayOfWeekComboBox" ItemsSource="{Binding DaysOfWeek}" SelectedItem="{Binding SelectedDayOfWeek}" SelectionChanged="dayOfWeekComboBox_SelectionChanged" Margin="15" />
+        </StackPanel>
+
+        <DataGrid Grid.Column="0" Margin="10,0,0,0" Name="dgvJournal" ItemsSource="{Binding Students}" AutoGenerateColumns="False" Style="{StaticResource CustomDataGrid}">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" Width="170" />
                 <DataGridTemplateColumn Header="Attendance">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -37,7 +60,7 @@
                 <DataGridTemplateColumn Header="Grade">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox Name="cbGrade" SelectedIndex ="{Binding Gradee}" SelectionChanged="gradeCbBox_SelectionChanged">
+                            <ComboBox Name="cbGrade" SelectedIndex="{Binding Gradee}" SelectionChanged="gradeCbBox_SelectionChanged" Width="50">
                                 <ComboBoxItem>1</ComboBoxItem>
                                 <ComboBoxItem>2</ComboBoxItem>
                                 <ComboBoxItem>3</ComboBoxItem>
@@ -57,7 +80,7 @@
                 <DataGridTemplateColumn Header="Homework Grade">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox SelectedIndex="{Binding HomeworkGradee}" SelectionChanged="homewrkgradeCbBox_SelectionChanged">
+                            <ComboBox SelectedIndex="{Binding HomeworkGradee}" SelectionChanged="homewrkgradeCbBox_SelectionChanged" Width="50">
                                 <ComboBoxItem>1</ComboBoxItem>
                                 <ComboBoxItem>2</ComboBoxItem>
                                 <ComboBoxItem>3</ComboBoxItem>
@@ -74,14 +97,14 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Comment">
+                <DataGridTemplateColumn Header="Comment" Width="170">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBox Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Payment">
+                <DataGridTemplateColumn Header="Payment" Width="150">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBox Text="{Binding Payment, UpdateSourceTrigger=PropertyChanged}"/>
@@ -90,8 +113,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Column="1" Orientation="Vertical" Height="110" VerticalAlignment="Top" Background="Bisque">
-            <Button VerticalAlignment="Top" Content="Save" Margin="30,30,30,0" Click="SaveButton_Click" />
+
+        <StackPanel Width="Auto" MinWidth="180" Grid.Column="1" Orientation="Vertical" Height="110" VerticalAlignment="Top" Background="#F2E5E5" HorizontalAlignment="Left">
+            <Button FontFamily="Roboto" VerticalAlignment="Top" Content="Save" Margin="30,30,30,30" Click="SaveButton_Click" />
         </StackPanel>
     </Grid>
 </Page>

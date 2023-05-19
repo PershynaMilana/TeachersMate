@@ -7,33 +7,34 @@
       mc:Ignorable="d" 
       d:DesignHeight="556" d:DesignWidth="910"
       Title="BooksPage">
-    <Grid Background="AliceBlue">
+ 
+    <Grid Background="#F2E5E5" Margin="50,0,10,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="0" Margin="10" Name="dgv" Width="700" Height="495" AutoGenerateColumns="False" CanUserSortColumns="True">
+        <DataGrid Grid.Column="0" Margin="10" Name="dgv" Width="Auto" AutoGenerateColumns="False" CanUserSortColumns="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="300" Header="FileName" Binding="{Binding FileName}" SortMemberPath="Name" SortDirection="Ascending" IsReadOnly="True"/>
+                <DataGridTextColumn Width="170" Header="FileName" Binding="{Binding FileName}" SortMemberPath="Name" SortDirection="Ascending" IsReadOnly="True"/>
                 <DataGridTextColumn Width="150" Header="Author" Binding="{Binding Author}" IsReadOnly="True" />
-                <DataGridTextColumn Width="92" Header="FileSize" Binding="{Binding FileSize}" IsReadOnly="True" />
-                <DataGridTextColumn Width="75" Header="Level" Binding="{Binding Level}" IsReadOnly="True" />
-                <DataGridTemplateColumn Width="75" Header="Favorite">
+                <DataGridTextColumn Width="150" Header="FileSize" Binding="{Binding FileSize}" IsReadOnly="True" />
+                <DataGridTextColumn Width="90" Header="Level" Binding="{Binding Level}" IsReadOnly="True" />
+                <DataGridTemplateColumn Width="90" Header="Favorite">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <RadioButton IsChecked="{Binding IsFavorite}" Checked="FavoriteButton_Check"/>
+                            <RadioButton IsChecked="{Binding IsFavorite}" Checked="FavoriteButton_Check"/>                            
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Button Margin="10" Name="btnAddBook" Height="30" Width="150" Content="Add book" Click="btnAddBook_Click"/>
-            <Button Margin="10" Name="btnDeleteBook" Height="30" Width="150" Content="Delete book" Click="btnDeleteBook_Click"/>
-            <Button Margin="10" Name="btnChangeBook" Height="30" Width="150" Content="Change book" Click="btnChangeBook_Click"/>
-            <Button Margin="10" Name="btnRemoveFavoriteBooks" Height="30" Width="150" Content="Remove favorite book" Click="btnRemovFavBook_Click"/>
-            <Label Content="Sort books by level:"/>
-            <ComboBox Margin="10" Name="cmbLevel" Height="30" Width="150" SelectionChanged="cmbLevel_SelectionChanged">
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+            <Button FontFamily="Roboto" Margin="10" Name="btnAddBook" Height="30" Width="180" Content="Add book" Click="btnAddBook_Click"/>
+            <Button FontFamily="Roboto" Margin="10" Name="btnDeleteBook" Height="30" Width="180" Content="Delete book" Click="btnDeleteBook_Click"/>
+            <Button FontFamily="Roboto" Margin="10" Name="btnChangeBook" Height="30" Width="180" Content="Change book" Click="btnChangeBook_Click"/>
+            <Button FontFamily="Roboto" Margin="10" Name="btnRemoveFavoriteBooks" Height="30" Width="180" Content="Remove favorite book" Click="btnRemovFavBook_Click"/>
+            <Label FontFamily="Roboto" Foreground="#665A48" FontSize="17" Content="Sort books by level:" HorizontalAlignment="Left"/>
+            <ComboBox Margin="10" Name="cmbLevel" Height="35" Width="180" SelectionChanged="cmbLevel_SelectionChanged" FontSize="17"  Style="{StaticResource MaterialDesignComboBox}" FontFamily="Roboto"  Foreground="#454545" >
                 <ComboBoxItem>A1</ComboBoxItem>
                 <ComboBoxItem>A2</ComboBoxItem>
                 <ComboBoxItem>B1</ComboBoxItem>
@@ -41,10 +42,10 @@
                 <ComboBoxItem>C1</ComboBoxItem>
                 <ComboBoxItem>C2</ComboBoxItem>
             </ComboBox>
-            <TextBox Margin="10" x:Name="txtBoxFind" Height="30" Width="150" TextChanged="txtBoxFindChanged"/>
-            <Button Margin="10" Name="btnFind" Height="30" Width="150" Content="Find books by title" Click="btnFindByTitle_Click" IsEnabled="False"/>
-            <Button Margin="10" Name="btnFind2" Height="30" Width="150" Content="Find books by author" Click="btnFindByAuthor_Click" IsEnabled="False"/>
-            <Button Margin="10" Name="btnFind3" Height="30" Width="150" Content="Show all books" Click="btnShowAllBooks_Click"/>
+            <TextBox FontFamily="Roboto"  Foreground="#454545" FontSize="17" Margin="10" x:Name="txtBoxFind" Height="35" Width="180" TextChanged="txtBoxFindChanged"/>
+            <Button Margin="10" Name="btnFind" Height="30" Width="180" Content="Find books by title" Click="btnFindByTitle_Click" IsEnabled="False"/>
+            <Button Margin="10" Name="btnFind2" Height="30" Width="180" Content="Find books by author" Click="btnFindByAuthor_Click" IsEnabled="False"/>
+            <Button Margin="10" Name="btnFind3" Height="30" Width="180" Content="Show all books" Click="btnShowAllBooks_Click"/>
         </StackPanel>
     </Grid>
 </Page>

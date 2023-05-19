@@ -5,8 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:TeachersMate.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="556" d:DesignWidth="910"
+      d:DesignHeight="800" d:DesignWidth="1080"
       Title="SchedulePage" >
+    
 
     <Page.Resources>
         <Style TargetType="TextBlock">
@@ -21,64 +22,72 @@
             <Setter Property="BorderBrush" Value="#FF235759"/>
             <Setter Property="BorderThickness" Value="1.5"/>
         </Style>
+        <Style x:Key="CustomDataGrid" TargetType="{x:Type DataGrid}">
+            <Setter Property="Background" Value="#F2E5E5"/>
+            <Setter Property="BorderBrush" Value="#E8C4C4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="RowBackground" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="fonts:/Roboto Regular#Roboto"/>
+            <Setter Property="Foreground" Value="#665A48"/>
+        </Style>
     </Page.Resources>
+    <Viewbox Stretch="Uniform">
+        <Grid Background="#F2E5E5" Width="Auto">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,10,10,0">
+                    <Button  FontFamily="Roboto" Style="{DynamicResource MaterialDesignRaisedButton}" Foreground="White" Name="AddButton" Content="Add student" Margin="19" Width="130" Click="AddStud_click"/>
+                    <Button  FontFamily="Roboto" Style="{DynamicResource MaterialDesignRaisedButton}"  Foreground="White" Name="DeleteButton" Content="Delete student" Margin="10" Width="130"  Click="DeleteStud_click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Name:" Width="45" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox BorderBrush="#CE7777" x:Name="txtName" Grid.Row="0" Width="120" Grid.Column="1" Margin="5" Height="30" FontSize="15" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Phone:" Width="45" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox BorderBrush="#CE7777" x:Name="txtPhone" Grid.Row="0" Width="120" Grid.Column="1" Margin="5" Height="30" FontSize="15"/>
+                    </StackPanel>
 
-    <Grid Background="AliceBlue">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10,10,10,0">
-                <Button Name="AddButton" Content="Add student" Margin="10" Width="90" Click="AddStud_click"/>
-                <Button Name="DeleteButton" Content="Delete student" Margin="10" Width="90"  Click="DeleteStud_click"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Name:" Width="45" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="txtName" Grid.Row="0" Width="120" Grid.Column="1" Margin="5" Height="20" />
+                    <Label Content="Day:" Grid.Row="1" Width="35" Grid.Column="0" VerticalAlignment="Center"/>
+                    <ComboBox BorderBrush="#CE7777"  x:Name="cmbDay" Grid.Row="1" Width="90" Grid.Column="1" Margin="10" Height="30" >
+                        <ComboBoxItem Content="Monday"/>
+                        <ComboBoxItem Content="Tuesday"/>
+                        <ComboBoxItem Content="Wednesday"/>
+                        <ComboBoxItem Content="Thursday"/>
+                        <ComboBoxItem Content="Friday"/>
+                        <ComboBoxItem Content="Saturday"/>
+                        <ComboBoxItem Content="Sunday"/>
+                    </ComboBox>
+
+                    <Label Content="Time:" Width="40" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                    <ComboBox BorderBrush="#CE7777" x:Name="cmbTime" Grid.Row="2" Grid.Column="1" Margin="10" Width="90" Height="30" >
+                        <ComboBoxItem Content="10:00"/>
+                        <ComboBoxItem Content="11:00"/>
+                        <ComboBoxItem Content="12:00"/>
+                        <ComboBoxItem Content="13:00"/>
+                        <ComboBoxItem Content="14:00"/>
+                        <ComboBoxItem Content="15:00"/>
+                        <ComboBoxItem Content="16:00"/>
+                        <ComboBoxItem Content="17:00"/>
+                        <ComboBoxItem Content="18:00"/>
+                        <ComboBoxItem Content="19:00"/>
+                        <ComboBoxItem Content="20:00"/>
+                    </ComboBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Phone:" Width="45" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-                    <TextBox x:Name="txtPhone" Grid.Row="0" Width="120" Grid.Column="1" Margin="5" Height="20" />
-                </StackPanel>
 
-                <Label Content="Day:" Grid.Row="1" Width="35" Grid.Column="0" VerticalAlignment="Center"/>
-                <ComboBox x:Name="cmbDay" Grid.Row="1" Width="90" Grid.Column="1" Margin="10" Height="23" >
-                    <ComboBoxItem Content="Monday"/>
-                    <ComboBoxItem Content="Tuesday"/>
-                    <ComboBoxItem Content="Wednesday"/>
-                    <ComboBoxItem Content="Thursday"/>
-                    <ComboBoxItem Content="Friday"/>
-                    <ComboBoxItem Content="Saturday"/>
-                    <ComboBoxItem Content="Sunday"/>
-                </ComboBox>
-
-                <Label Content="Time:" Width="40" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                <ComboBox x:Name="cmbTime" Grid.Row="2" Grid.Column="1" Margin="10" Width="90" Height="23" >
-                    <ComboBoxItem Content="10:00"/>
-                    <ComboBoxItem Content="11:00"/>
-                    <ComboBoxItem Content="12:00"/>
-                    <ComboBoxItem Content="13:00"/>
-                    <ComboBoxItem Content="14:00"/>
-                    <ComboBoxItem Content="15:00"/>
-                    <ComboBoxItem Content="16:00"/>
-                    <ComboBoxItem Content="17:00"/>
-                    <ComboBoxItem Content="18:00"/>
-                    <ComboBoxItem Content="19:00"/>
-                    <ComboBoxItem Content="20:00"/>
-                </ComboBox>
-            </StackPanel>
-
-            <DataGrid x:Name="studentsDataGrid" Grid.Row="1" Margin="10" Width="890" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectedCellsChanged="studentsDataGrid_SelectedCellsChanged">
-                <DataGrid.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Width" Value="120"/>
-                        <Setter Property="Height" Value="40"/>
-                        <Setter Property="BorderBrush" Value="Black"/>
-                        <Setter Property="BorderThickness" Value=".3"/>
-                    </Style>
-                </DataGrid.CellStyle>
-                <DataGrid.Columns>
-                        <DataGridTextColumn Width="40" Header="Time" Binding="{Binding Time}"/>
+                <DataGrid Style="{StaticResource CustomDataGrid}" x:Name="studentsDataGrid" Grid.Row="1" Margin="10" Width="908" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False" SelectedCellsChanged="studentsDataGrid_SelectedCellsChanged">
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Width" Value="116"/>
+                            <Setter Property="Height" Value="40"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="BorderThickness" Value=".3"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="70" Header="Time" Binding="{Binding Time}"/>
                         <DataGridTextColumn Header="Monday" Binding="{Binding Monday}"/>
                         <DataGridTextColumn Header="Tuesday" Binding="{Binding Tuesday}"/>
                         <DataGridTextColumn Header="Wednesday" Binding="{Binding Wednesday}"/>
@@ -87,8 +96,9 @@
                         <DataGridTextColumn Header="Saturday" Binding="{Binding Saturday}"/>
                         <DataGridTextColumn Header="Sunday" Binding="{Binding Sunday}"/>
                     </DataGrid.Columns>
-            </DataGrid>
+                </DataGrid>
 
+            </Grid>
         </Grid>
-    </Grid>
+    </Viewbox>
 </Page>

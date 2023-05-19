@@ -69,5 +69,19 @@ namespace TeachersMate
             NotesPage newPage = new NotesPage();
             MainFrame.Navigate(new NotesPage());
         }
+
+        private void Click_BtnHomework(object sender, RoutedEventArgs e)
+        {
+            name = txtbx_greeting.Text;
+            HomeworkPage newPage = new HomeworkPage(name);
+            MainFrame.Navigate(new HomeworkPage(name));
+        }
+
+        private void Click_Exit(object sender, RoutedEventArgs e)
+        {
+            LoginWindow newLoginWindow = new LoginWindow();  
+            Close();
+            newLoginWindow.Show();
+        }
     }
 }

@@ -43,42 +43,86 @@ namespace TeachersMate
             string position = cb_Position.Text;
             string name = Login_txtBox.Text;
 
-            if (Password_txtBox.Password.Length >= 6)
+            if (position == "Teacher") 
             {
-                using (connection)
+                if (Password_txtBox.Password.Length >= 6)
                 {
-                    connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
-                    connection.Open();
-                    string query = "SELECT * FROM RegisteredUsersTable WHERE Login = @login AND Password = @password AND Position = @position";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (connection)
                     {
-                        command.Parameters.AddWithValue("@login", login);
-                        command.Parameters.AddWithValue("@password", password);
-                        command.Parameters.AddWithValue("@position", position);
+                        connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
+                        connection.Open();
+                        string query = "SELECT * FROM RegisteredUsersTable WHERE Login = @login AND Password = @password AND Position = @position";
 
-                        object obj = command.ExecuteScalar();
-                        if (obj == null)
+                        using (SqlCommand command = new SqlCommand(query, connection))
                         {
-                            connection.Close();
-                            MessageBox.Show("Wrong data!");
-                            Login_txtBox.Clear();
-                            Password_txtBox.Clear();
-                        }
-                        else
-                        {
-                            connection.Close();
-                            MainWindow mainWindow = new MainWindow(name);
-                            Close();
-                            mainWindow.Show();
+                            command.Parameters.AddWithValue("@login", login);
+                            command.Parameters.AddWithValue("@password", password);
+                            command.Parameters.AddWithValue("@position", position);
+
+                            object obj = command.ExecuteScalar();
+                            if (obj == null)
+                            {
+                                connection.Close();
+                                MessageBox.Show("Wrong data!");
+                                Login_txtBox.Clear();
+                                Password_txtBox.Clear();
+                            }
+                            else
+                            {
+                                connection.Close();
+                                MainWindow mainWindow = new MainWindow(name);
+                                Close();
+                                mainWindow.Show();
+                            }
                         }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Password is too small!");
+                }
             }
-            else
+            else if(position == "Student")
             {
-                MessageBox.Show("Password is too small!");
+                if (Password_txtBox.Password.Length >= 6)
+                {
+                    using (connection)
+                    {
+                        connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectStr"].ConnectionString);
+                        connection.Open();
+                        string query = "SELECT * FROM RegisteredUsersTable WHERE Login = @login AND Password = @password AND Position = @position";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@login", login);
+                            command.Parameters.AddWithValue("@password", password);
+                            command.Parameters.AddWithValue("@position", position);
+
+                            object obj = command.ExecuteScalar();
+                            if (obj == null)
+                            {
+                                connection.Close();
+                                MessageBox.Show("Wrong data!");
+                                Login_txtBox.Clear();
+                                Password_txtBox.Clear();
+                            }
+                            else
+                            {
+                                connection.Close();
+                                MainWindowStudent mainWindow = new MainWindowStudent(name);
+                                Close();
+                                mainWindow.Show();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Password is too small!");
+                }
             }
+
+            
         }
 
         private void Cancel_Btn_Click(object sender, RoutedEventArgs e)

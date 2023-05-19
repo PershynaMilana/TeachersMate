@@ -3,29 +3,88 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TeachersMate.Pages"
+      xmlns:local="clr-namespace:TeachersMate.Pages" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:sys="http://schemas.microsoft.com/winfx/2009/xaml"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="556" d:DesignWidth="910"
              Title="Text Editor" >
-
-    <Grid Background="Bisque">
+    <Page.Resources>
+        <Style x:Key="CustomToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="BorderThickness" Value=".5" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Ellipse x:Name="Circle" Grid.Column="0" Width="15" Height="15" Fill="{TemplateBinding BorderBrush}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" />
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Circle" Property="Fill" Value="#E8C4C4" />
+                                <Setter TargetName="Circle" Property="Stroke" Value="#CE7777" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="Circle" Property="Fill" Value="#7895B2" />
+                                <Setter TargetName="Circle" Property="Stroke" Value="#2B3A55" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    
+    </Page.Resources>
+    <Grid Background="#F2E5E5" Margin="50,0,50,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <ToolBar Margin="10,10,10,0" Grid.Row="0">
-            <Button Margin="10" Command="ApplicationCommands.New" Content="New"/>
-            <Button Margin="10" Command="ApplicationCommands.Open" Content="Open"/>
-            <Button Margin="10" Command="ApplicationCommands.Save" Content="Save"/>
-            <Button Margin="10" Command="ApplicationCommands.Find" Content="Find"/>
-            <Button Margin="10" Command="ApplicationCommands.Replace" Content="Replace"/>
-            <Button Margin="10" Command="ApplicationCommands.Cut" Content="Cut"/>
-            <Button Margin="10" Command="ApplicationCommands.Copy" Content="Copy"/>
-            <Button Margin="10" Command="ApplicationCommands.Paste" Content="Paste"/>
-            <Button Margin="10" Command="ApplicationCommands.Undo" Content="Undo"/>
-            <Button Margin="10" Command="ApplicationCommands.Redo" Content="Redo"/>
-            <Button Margin="10" Command="ApplicationCommands.SelectAll" Content="Select All"/>
+            <Button Margin="10" Command="ApplicationCommands.New">
+                <materialDesign:PackIcon Kind="File" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Open">
+                <materialDesign:PackIcon Kind="FolderOpen" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Save">
+                <materialDesign:PackIcon Kind="ContentSave" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Find">
+                <materialDesign:PackIcon Kind="Search" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Replace">
+                <materialDesign:PackIcon Kind="FileReplace" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Cut">
+                <materialDesign:PackIcon Kind="ContentCut" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Copy">
+                <materialDesign:PackIcon Kind="ContentCopy" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Paste">
+                <materialDesign:PackIcon Kind="ContentPaste" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Undo">
+                <materialDesign:PackIcon Kind="UndoVariant" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.Redo">
+                <materialDesign:PackIcon Kind="RedoVariant" />
+            </Button>
+            <Button Margin="10" Command="ApplicationCommands.SelectAll">
+                <materialDesign:PackIcon Kind="SelectAll" />
+            </Button>
             <Separator Width="1.5"/>
         </ToolBar>
 
@@ -51,15 +110,18 @@
                 </ComboBox>
             </StackPanel>
 
+         
+
+
             <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10">
                 <Label Content="Text Style:" VerticalAlignment="Center" />
-                <ToggleButton x:Name="italicToggleButton" Content="Italic" Margin="5" Width="100" Checked="StyleToggleButton_Checked" Unchecked="StyleToggleButton_Unchecked" />
-                <ToggleButton x:Name="boldToggleButton" Content="Bold" Margin="5"  Width="100" Checked="StyleToggleButton_Checked" Unchecked="StyleToggleButton_Unchecked" />
-                <ToggleButton x:Name="underlineToggleButton" Content="Underline" Width="100" Margin="5" Checked="StyleToggleButton_Checked" Unchecked="StyleToggleButton_Unchecked" />
+                <ToggleButton x:Name="italicToggleButton" Content="Italic" Margin="5" Style="{StaticResource CustomToggleButtonStyle}" />
+                <ToggleButton x:Name="boldToggleButton" Content="Bold" Margin="5" Style="{StaticResource CustomToggleButtonStyle}" />
+                <ToggleButton x:Name="underlineToggleButton" Content="Underline" Margin="5" Style="{StaticResource CustomToggleButtonStyle}" />
             </StackPanel>
         </StackPanel>
-        
-        <RichTextBox x:Name="textEditor" Grid.Row="4" Margin="7,70,7,7" SpellCheck.IsEnabled="True" TextChanged="Document_TextChanged"/>
+
+        <RichTextBox x:Name="textEditor" Grid.Row="4" Margin="7,70,7,7" SpellCheck.IsEnabled="True" />
 
         <Label Margin="10,1,92,15" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Word count:"/>
         <Label x:Name="wordCountLabel" Margin="10,1,30,5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
